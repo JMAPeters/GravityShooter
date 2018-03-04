@@ -1,17 +1,40 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
-
+    //Movement
     public Rigidbody2D rbPlayer;
     public float jumpSpeed;
     public float moveSpeed;
     public float maxSpeed;
     bool onPlanet;
-    public float spaceDrag = 0.01f;
+    float spaceDrag = 0.01f;
+
+    //Shooting
+    public GameObject bulletPref;
+    public Transform bulletSpawn;
+
+    //bullshit
+    Sprite testPlayerSprite;
+    public int bulletSpeed;
+
+    void Start()
+    {
+        //testPlayerSprite = Resources.Load<Sprite>("testplayer2");
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        //GetComponent<SpriteRenderer>().sprite = testPlayerSprite;
+    }
 
     void Update()
     {
+        //Only local player processes input
+        if (!isLocalPlayer)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Space) && onPlanet)
         {
             var jumpDirection = Quaternion.AngleAxis(transform.eulerAngles.z, Vector3.forward) * Vector3.up;
@@ -45,6 +68,11 @@ public class PlayerMovement : MonoBehaviour
         else
             if (onPlanet)
                     rbPlayer.angularVelocity = 0;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            CmdFire();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -57,5 +85,20 @@ public class PlayerMovement : MonoBehaviour
     {
         onPlanet = false;
         spaceDrag = 0.01f;
+    }
+
+    [Command]
+    void CmdFire()
+    {
+        //Create the bullet from the bullet pref
+        var bullet = (GameObject)Instantiate(bulletPref, bulletSpawn.position, bulletSpawn.rotation);
+
+        //Add veloctiy to the bullet
+        bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * bulletSpeed;
+
+        NetworkServer.Spawn(bullet);
+
+        //Destroy the bullet 
+        Destroy(bullet, 2.0f); /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 }
