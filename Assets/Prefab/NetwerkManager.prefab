@@ -54,9 +54,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomNameInput: {fileID: 0}
+  menuSceneName: TestMenuScene
   CreateRoomButton: {fileID: 0}
   Toggle1v1: {fileID: 0}
   Toggle2v2: {fileID: 0}
+  ToggleTD: {fileID: 0}
+  ToggleFFA: {fileID: 0}
 --- !u!114 &114298552255714162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,5 +156,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   showGUI: 0
-  offsetX: 0
+  offsetX: 200
   offsetY: 0

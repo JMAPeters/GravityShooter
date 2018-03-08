@@ -4130,30 +4130,10 @@ Prefab:
       propertyPath: ToggleFFA
       value: 
       objectReference: {fileID: 1100234744}
-    - target: {fileID: 114769109059433794, guid: cb572243e3031d74c82008d26e6539fa,
-        type: 2}
-      propertyPath: showGUI
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114769109059433794, guid: cb572243e3031d74c82008d26e6539fa,
-        type: 2}
-      propertyPath: offsetX
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 114298552255714162, guid: cb572243e3031d74c82008d26e6539fa,
         type: 2}
-      propertyPath: m_UseWebSockets
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114298552255714162, guid: cb572243e3031d74c82008d26e6539fa,
-        type: 2}
-      propertyPath: m_CustomConfig
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114298552255714162, guid: cb572243e3031d74c82008d26e6539fa,
-        type: 2}
-      propertyPath: m_UseSimulator
-      value: 0
+      propertyPath: matchName
+      value: roomName
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb572243e3031d74c82008d26e6539fa, type: 2}

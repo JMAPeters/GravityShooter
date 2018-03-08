@@ -1,16 +1,22 @@
-﻿using UnityEngine;
-using UnityEngine.Networking;
+﻿using UnityEngine.Networking;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameHost : NetworkBehaviour {
 
     private NetworkManager networkManager;
 
+    [SyncVar]
     uint roomSize = 0;
+    [SyncVar]
     int gameMode = 0;
+    [SyncVar]
     private string roomName;
+
     public InputField roomNameInput;
 
+    public string menuSceneName = "TestMenuScene";
+    string sceneName;
     public Button CreateRoomButton;
     public Toggle Toggle1v1;
     public Toggle Toggle2v2;
@@ -25,6 +31,8 @@ public class GameHost : NetworkBehaviour {
         {
             networkManager.StartMatchMaker();
         }
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
     }
 
     public void SetRoomName(Text name)
@@ -34,7 +42,8 @@ public class GameHost : NetworkBehaviour {
 
     void Update()
     {
-        ToggleMenu();
+        if (sceneName == menuSceneName)
+            ToggleMenu();
     }
 
     private void ToggleMenu()

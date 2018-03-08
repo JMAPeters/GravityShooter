@@ -35,6 +35,9 @@ public class PlayerMovement : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
+        if (PauseMenu.IsOn)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Space) && onPlanet)
         {
             var jumpDirection = Quaternion.AngleAxis(transform.eulerAngles.z, Vector3.forward) * Vector3.up;
