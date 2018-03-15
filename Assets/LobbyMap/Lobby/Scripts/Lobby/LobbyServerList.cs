@@ -52,8 +52,6 @@ namespace Prototype.NetworkLobby
             foreach (Transform t in serverListRect)
                 Destroy(t.gameObject);
 
-            //for (int i = 0; i < matches.Count; ++i)
-
             foreach (MatchInfoSnapshot match in matches)
 			{
                 if (match.averageEloScore == LobbyMainMenu.GetGameMode())
@@ -62,7 +60,7 @@ namespace Prototype.NetworkLobby
 
                     o.GetComponent<LobbyServerEntry>().Populate(match, lobbyManager, (matches.Count % 2 == 0) ? OddServerColor : EvenServerColor);
 
-                    //o.GetComponent<LobbyServerEntry>().Populate(matches[i], lobbyManager, (i % 2 == 0) ? OddServerColor : EvenServerColor);
+                    
 
                     o.transform.SetParent(serverListRect, false);
                 }

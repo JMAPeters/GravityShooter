@@ -15,6 +15,7 @@ namespace Prototype.NetworkLobby
 
         public Toggle ToggleScout, ToggleSoldier, ToggleTank;
         string playerCharacter;
+        public Button PlayCharacterButton;
 
         void Start()
         {
@@ -26,11 +27,16 @@ namespace Prototype.NetworkLobby
         {
             if (!isInGame)
                 return;
+            else
+                if (!chooseCharacter)
+                {
+                    if (!ToggleScout.IsActive())
+                    {
+                        ToggleVisibility(!isDisplayed);
+                    }
+                }
 
-            if (!chooseCharacter)
-            {
-                ToggleVisibility(!isDisplayed);   
-            }
+            ToggleCharacter();
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -93,6 +99,11 @@ namespace Prototype.NetworkLobby
                 ToggleTank.interactable = true;
                 chooseCharacter = false;
             }
+
+            if (playerCharacter != null)
+                PlayCharacterButton.interactable = true;
+            else
+                PlayCharacterButton.interactable = false;
         }
     }
 }
