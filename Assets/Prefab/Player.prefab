@@ -244,7 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b357b7ab3ded8d445be133d5a53fb841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 110
+  currentHealth: 0
   healthBar: {fileID: 224042945954015942}
 --- !u!114 &114262612512103830
 MonoBehaviour:
@@ -352,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbPlayer: {fileID: 50332540175685278}
-  jumpSpeed: 110
+  jumpSpeed: 100
   moveSpeed: 13
   maxSpeed: 2
   bulletPref: {fileID: 1621261984253716, guid: 5bc6bedd621dad642930d08a9810be4e, type: 2}
