@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 79b60b87d61da32419b3948cbe090400
+  productGUID: 20e5ec383945cbc45aa4df115ed4ec07
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -12,7 +12,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: GravityShooterGame
+  productName: GravityShooter2
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -557,14 +557,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: GravityShooterGame
+  metroPackageName: GravityShooter2
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: GravityShooterGame
+  metroApplicationDescription: GravityShooter2
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -633,8 +633,8 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 1bc02436-2318-4727-be2c-b9fe7793d0ea
-  projectName: GravityShooterGame
+  cloudProjectId: 9d8dd3eb-2734-4431-9753-bc398d0f15fc
+  projectName: GravityShooter2
   organizationId: jorn-peters-394f03c7-20c0-4441-bfad-1a0a53ceb2cb
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

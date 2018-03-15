@@ -29,7 +29,7 @@ public class PlayerHealth : NetworkBehaviour
         if (currentHealth <= 0)
         {
             RpcRespawn();
-        }        
+        }
     }
 
     void OnChangeHealth(int currentHealth)
@@ -52,5 +52,4 @@ public class PlayerHealth : NetworkBehaviour
         }
         currentHealth = maxHealth;
     }
-}
-
+} 

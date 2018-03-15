@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class BulletCollision : MonoBehaviour {
+public class BulletCollision : MonoBehaviour
+{
 
     public int bulletDamage;
 

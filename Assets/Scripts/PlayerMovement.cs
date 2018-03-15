@@ -10,6 +10,7 @@ public class PlayerMovement : NetworkBehaviour
     public float maxSpeed;
     bool onPlanet;
     float spaceDrag = 0.01f;
+    bool playerInActive;
 
     //Shooting
     public GameObject bulletPref;
@@ -35,7 +36,10 @@ public class PlayerMovement : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
-        if (PauseMenu.IsOn)
+        //if (PauseMenu.IsOn)
+            //return;
+
+        if (playerInActive)
             return;
 
         if (Input.GetKeyDown(KeyCode.Space) && onPlanet)
@@ -47,7 +51,7 @@ public class PlayerMovement : NetworkBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            var moveDirection = Quaternion.AngleAxis(transform.eulerAngles.z, Vector3.forward) * new Vector3(-1,-1,0); //naar links en omlaag
+            var moveDirection = Quaternion.AngleAxis(transform.eulerAngles.z, Vector3.forward) * new Vector3(-1, -1, 0); //naar links en omlaag
             Vector2 moveForce = moveDirection.normalized * moveSpeed * 1000 * spaceDrag * Time.deltaTime;
             rbPlayer.angularVelocity = 0;
 
@@ -59,7 +63,7 @@ public class PlayerMovement : NetworkBehaviour
         else
         if (Input.GetKey(KeyCode.D))
         {
-            var moveDirection = Quaternion.AngleAxis(transform.eulerAngles.z, Vector3.forward) * new Vector3(1,-1,0); //naar rechts en omlaag
+            var moveDirection = Quaternion.AngleAxis(transform.eulerAngles.z, Vector3.forward) * new Vector3(1, -1, 0); //naar rechts en omlaag
             Vector2 moveForce = moveDirection.normalized * moveSpeed * 1000 * spaceDrag * Time.deltaTime;
             rbPlayer.angularVelocity = 0;
 
@@ -70,11 +74,11 @@ public class PlayerMovement : NetworkBehaviour
         }
         else
             if (onPlanet)
-                    rbPlayer.angularVelocity = 0;
+            rbPlayer.angularVelocity = 0;
 
         if (Input.GetMouseButtonDown(0))
         {
-            CmdFire();
+            CmdFire(); 
         }
     }
 
@@ -103,5 +107,10 @@ public class PlayerMovement : NetworkBehaviour
 
         //Destroy the bullet 
         Destroy(bullet, 2.0f); /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    }
+
+    public void inActive(bool value)
+    {
+        playerInActive = value;
     }
 }

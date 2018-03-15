@@ -70,7 +70,7 @@ public class getAttracted : MonoBehaviour
         Rigidbody2D rbPlanet = Planet.GetComponent<Rigidbody2D>();
 
         Vector3 direction = rbPlanet.position - rbPlayer.position;
-        
+
         //Change angle of the sprite
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90;
         Quaternion Quat = Quaternion.AngleAxis(angle, Vector3.forward);
