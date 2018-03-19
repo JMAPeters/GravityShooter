@@ -35,17 +35,17 @@ public class LevelGenerator : MonoBehaviour
             return;
         }
 
-        if (isDone == 600)
+        if (isDone == 1200)
             return;
        
 
-        GameObject lastPlanet = lastPlanet = planets[planets.Count - 1]; ;
+        GameObject lastPlanet = planets[planets.Count - 1]; ;
 
-        if (isDone >= 200)
+        if (isDone >= 400)
         {
             lastPlanet = planets[planets.IndexOf(lastPlanet)  - 1];           
         }
-        if (isDone >= 400)
+        if (isDone >= 800)
         {
             lastPlanet = planets[planets.IndexOf(lastPlanet) - 1];          
         }
@@ -80,8 +80,7 @@ public class LevelGenerator : MonoBehaviour
                 //bool isNotIsolated = Physics2D.OverlapCircle(newPlanet.transform.position, PlanetDistance * randomFactor + spriteNewPlanet.bounds.extents.x);
                 if (!isColliding)
                 {
-                    Instantiate(newPlanet);
-                    Debug.Log("Planeet is goed geplaatst");              
+                    Instantiate(newPlanet);             
                     isDone = 0;                                 
                     newPlanetPos();
                 }
@@ -96,8 +95,6 @@ public class LevelGenerator : MonoBehaviour
             {
                 planets.Remove(newPlanet);
                 isDone++;
-                Debug.Log("eerste if");
-            Debug.Log(newPlanet.transform.position);
                 newPlanetPos();
                
             }
