@@ -5,7 +5,7 @@ using UnityEngine;
 public class CrateGenerator : MonoBehaviour {
 
     public List<GameObject> Crates;
-    public int maxCrateCount, minCrateCount;
+    public int maxCrateCount, minCrateCount, padding;
     public GameObject Crate;
     private int xPos, yPos, random;
     private float spawnDelay, spawnTimer;
@@ -34,20 +34,20 @@ public class CrateGenerator : MonoBehaviour {
         switch (random)
         {          
             case 0:
-                xPos = (int)planet2.transform.position.x; 
-                yPos = Random.Range((int)planet2.transform.position.y, (int)planet1.transform.position.y);
+                xPos = (int)planet2.transform.position.x + padding; 
+                yPos = Random.Range((int)planet1.transform.position.y, (int)planet2.transform.position.y);
                 break;
             case 1:
                 xPos = Random.Range((int)planet1.transform.position.x, (int)planet2.transform.position.x);
-                yPos = (int)planet1.transform.position.y;
+                yPos = (int)planet1.transform.position.y - padding;
             break;
             case 2:
-                xPos = (int)planet1.transform.position.x;
+                xPos = (int)planet1.transform.position.x - padding;
                 yPos = Random.Range((int)planet2.transform.position.y, (int)planet1.transform.position.y);
                 break;
             case 3:
                 xPos = Random.Range((int)planet1.transform.position.x, (int)planet2.transform.position.x);
-                yPos = (int)planet2.transform.position.y;
+                yPos = (int)planet2.transform.position.y + padding;
             break;
         }
 
