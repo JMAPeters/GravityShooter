@@ -9,11 +9,12 @@ public class CrateGenerator : MonoBehaviour {
     public GameObject Crate;
     private int xPos, yPos, random;
     private float spawnDelay, spawnTimer;
+    public GameObject planet1, planet2;
 
 	// Use this for initialization
 	void Start () {
         Crates = new List<GameObject>();
-        spawnDelay = 2.0f;
+        spawnDelay = 4.0f;
         spawnTimer = spawnDelay;
         addCrate();
     }
@@ -33,26 +34,25 @@ public class CrateGenerator : MonoBehaviour {
         switch (random)
         {          
             case 0:
-                xPos = 15; 
-                yPos = Random.Range(-7, 0);
+                xPos = (int)planet2.transform.position.x; 
+                yPos = Random.Range((int)planet2.transform.position.y, (int)planet1.transform.position.y);
                 break;
             case 1:
-                xPos = Random.Range(-15, 4);
-                yPos = -7;
+                xPos = Random.Range((int)planet1.transform.position.x, (int)planet2.transform.position.x);
+                yPos = (int)planet1.transform.position.y;
             break;
             case 2:
-                xPos = -15;
-                yPos = Random.Range(0, 7);
+                xPos = (int)planet1.transform.position.x;
+                yPos = Random.Range((int)planet2.transform.position.y, (int)planet1.transform.position.y);
                 break;
             case 3:
-                xPos = Random.Range(-4, 15);
-                yPos = 7;
+                xPos = Random.Range((int)planet1.transform.position.x, (int)planet2.transform.position.x);
+                yPos = (int)planet2.transform.position.y;
             break;
         }
 
         Vector2 Position = new Vector2(xPos, yPos);
         return Position;
-        //TODO: Have the position be based on the position of the 2 base planets.
     }
 
 	// Update is called once per frame
@@ -62,11 +62,15 @@ public class CrateGenerator : MonoBehaviour {
             addCrate();
             Debug.Log("Dit werkt");
             spawnTimer = spawnDelay;
-            foreach (GameObject c in Crates)
+            /*foreach (GameObject c in Crates)
             {
-                Rigidbody2D rbc = c.GetComponent<Rigidbody2D>();
-                if (c.transform.position.x < )
-            }
+                if (c.transform.position.x < planet1.transform.position.x || c.transform.position.x > planet2.transform.position.x ||
+                    c.transform.position.y < planet2.transform.position.y || c.transform.position.y > planet1.transform.position.y)
+                {
+                    Crates.Remove(c);
+                    Debug.Log("Hopelijk zijn dit er niet veel");
+                }
+            }*/
         }
         spawnTimer = spawnTimer - 0.01f;
 	}
